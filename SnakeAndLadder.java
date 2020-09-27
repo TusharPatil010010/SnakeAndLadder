@@ -1,30 +1,38 @@
 public class SnakeAndLadder{
-		public static void main(String[] args)
-		{   
-		       int pos=0;
-                       int dice;
-                       int option;
+	public static void main(String[] args) {
 
-                       dice = (int)( Math.floor(Math.random()*5) + 1);
-                       option=(int)Math.floor(Math.random()*2);
-
-		            switch(option) {
-		                
-		                case 0:                 //No Play
-		                System.out.println("No play");
-		                break;
-		                
-		                case 1:                 //Ladder
-		                System.out.println("It's a ladder " + pos);
-				pos =+ dice;
-		                break;
-		                
-		                case 2 :                //Snake
-		                System.out.println("It's a snake " + pos);
-				pos =- dice;
-		                break;
-		             }
-             
+		final int max = 100;
+		final int min = 0;
+		int p1_pos = 0;
+		
+		while(p1_pos<max) {
+			
+			int num = (int)Math.floor(Math.random() * 10) % 6 + 1 ;
+			System.out.println("Number on dice : "+num);
+			
+			int check = (int)Math.floor(Math.random() * 10) % 3; //checking the options
+			
+			switch(check) {
+			case 0:
+				System.out.println("No play");
+			case 1:
+				System.out.println("Snake, move backward "+num+" positions");
+				p1_pos -= num;
+				break;
+			case 2:
+				System.out.println("Ladder, move forward "+num+" positions");
+				p1_pos += num;
+				break;
+			default:
+				System.out.println("Stay at same position");
+				break;
+			}
+			//reseting the position 
+			if(p1_pos < min) {
+				p1_pos = min;
+			}
+			
+			System.out.println("Your current position is "+p1_pos);
 		}
-
+	}
 }
