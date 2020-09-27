@@ -31,6 +31,11 @@ public class SnakeAndLadder{
 			if(p1_pos < min) {
 				p1_pos = min;
 			}
+
+			//If above 100
+			if(p1_pos > max) {
+				p1_pos -= num;
+			}
 			
 			System.out.println("Your current position is "+p1_pos);
 		}
