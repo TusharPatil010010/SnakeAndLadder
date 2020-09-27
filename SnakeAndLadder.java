@@ -4,11 +4,13 @@ public class SnakeAndLadder{
 		final int max = 100;
 		final int min = 0;
 		int p1_pos = 0;
+		int total_count = 0;
 		
 		while(p1_pos<max) {
 			
 			int num = (int)Math.floor(Math.random() * 10) % 6 + 1 ;
 			System.out.println("Number on dice : "+num);
+			total_count++;
 			
 			int check = (int)Math.floor(Math.random() * 10) % 3; //checking the options
 			
@@ -33,11 +35,13 @@ public class SnakeAndLadder{
 			}
 
 			//If above 100
-			if(p1_pos > max) {
+			if(p1_pos > max){
 				p1_pos -= num;
 			}
 			
 			System.out.println("Your current position is "+p1_pos);
 		}
+		
+		System.out.println("the number of times the dice was played to win the game : "+total_count);
 	}
 }
